@@ -1,12 +1,59 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <div>
-    <kendo-textbox-container floatingLabel="Repository URL">
-        <input kendoTextBox [(ngModel)]="repUrl"/>
+    <div>
+      <kendo-textbox-container floatingLabel="Repository URL">
+        <input kendoTextBox [(ngModel)]="repUrl" />
       </kendo-textbox-container>
-    <button kendoButton (click) = "addRepo()" [primary]="true"> + Add one more</button>
-  </div>
-  <div *ngFor="let link of repos">
+      <button kendoButton (click)="addRepo()" [primary]="true"> + Add one more</button>
+    </div>
+    <div *ngFor="let link of repos">
       <div>URL</div>
       <div>{{ link }}</div>
+    </div>
   </div>
+  <div>
+    <div class="example-wrapper">
+      <p>Period:</p>
+      <kendo-combobox [data]="popualrPeriods" [value]="'last month'">
+      </kendo-combobox>
+    </div>
+    <div>
+      <p>Date From:</p>
+      <kendo-datepicker [(ngModel)]="dataFrom"></kendo-datepicker>
+    </div>
+    <div>
+      <p>Date To:</p>
+      <kendo-datepicker [(ngModel)]="dataTo"></kendo-datepicker>
+    </div>
+  </div>
+  <div>
+    <div class="example-wrapper">
+      <p>Detail:</p>
+      <kendo-combobox [data]="graph" [value]="'short'">
+      </kendo-combobox>
+    </div>
+    <form class="k-form">
+      <div class="k-form-field">
+        <input type="radio" name="group" id="radio1" class="k-radio" checked />
+        <label class="k-radio-label" for="radio1">Default</label>
+
+        <input type="radio" name="group" class="k-radio" id="radio3" />
+        <label class="k-radio-label" for="radio3">Detaild</label>
+      </div>
+    </form>
+    <form class="k-form">
+      <div class="k-form-field">
+        <input type="checkbox" id="ch1" class="k-checkbox" checked />
+        <label class="k-checkbox-label" for="ch1">Table</label>
+
+        <input type="checkbox" id="ch1" class="k-checkbox" checked />
+        <label class="k-checkbox-label" for="ch1">Prepull</label>
+
+        <input type="checkbox" id="ch1" class="k-checkbox" checked />
+        <label class="k-checkbox-label" for="ch1">Daily</label>
+
+      </div>
+    </form>
+  </div>
+</div>
